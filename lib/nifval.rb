@@ -64,9 +64,8 @@ module Nifval
 
       def valid_cif?
         letters = %w{A B C D E F G H I J U V}
-        nstr = cif_algorithm_value.to_s
         if letters.include?( nif[0].upcase )
-          nif[8] == nstr
+          nif[8] == (cif_algorithm_value % 10).to_s
         else
           nif[8] == (64+cif_algorithm_value).chr
         end
