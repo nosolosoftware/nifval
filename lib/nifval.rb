@@ -63,8 +63,13 @@ module Nifval
       end
 
       def valid_cif?
+        letters = %w{A B C D E F G H I J U V}
         nstr = cif_algorithm_value.to_s
-        (ival(nif[8]) == (64+cif_algorithm_value).chr) || (nif[8] == nstr[nstr.length-1])
+        if letters.include?( nif[0].upcase )
+          nif[8] == nstr
+        else
+          nif[8] == (64+cif_algorithm_value).chr
+        end
       end
 
       def valid_nie?

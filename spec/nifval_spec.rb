@@ -37,6 +37,10 @@ describe Nifval do
     it "should return OK" do
       nif_validity "A12345674", true
     end
+
+    it "should return OK" do
+      nif_validity "S2833002E", true
+    end
   end
 
   # Invalid CIFs
